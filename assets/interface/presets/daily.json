@@ -1,0 +1,17 @@
+{
+    "preset": [
+        {
+            "name": "日常-长草",
+            "label": "$Preset.DailyIdle",
+            "description": "$Preset.DailyIdle.desc",
+            "task": [
+                {
+                    "name": "启动游戏"
+                },
+                {
+                    "name": "收取礼物"
+                }
+            ]
+        }
+    ]
+}

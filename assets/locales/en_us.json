@@ -1,0 +1,11 @@
+{
+    "Controller.Adb": "Emulator",
+    "Group.Daily": "Daily Tasks",
+    "Group.Standalone": "Standalone Tasks",
+    "Resource.GlobalCn": "Global (CN)",
+    "Resource.GlobalJp": "Global (JP)",
+    "Preset.DailyIdle": "Daily - Events",
+    "Preset.DailyIdle.desc": "Daily - Events Desc Text",
+    "Task.StartUp": "Start Game",
+    "Task.CollectRewards": "Collect Rewards"
+}

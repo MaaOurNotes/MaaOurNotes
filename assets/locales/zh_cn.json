@@ -1,0 +1,11 @@
+{
+    "Controller.Adb": "模拟器",
+    "Group.Daily": "日常任务",
+    "Group.Standalone": "独立任务",
+    "Resource.GlobalCn": "国际服（中文）",
+    "Resource.GlobalJp": "国际服（日文）",
+    "Preset.DailyIdle": "日常-长草",
+    "Preset.DailyIdle.desc": "日常-长草-描述文本",
+    "Task.StartUp": "启动游戏",
+    "Task.CollectRewards": "收取奖励"
+}

@@ -1,0 +1,12 @@
+{
+    "task": [
+        {
+            "name": "收取礼物",
+            "label": "$Task.CollectRewards",
+            "entry": "CollectRewards",
+            "group": [
+                "daily"
+            ]
+        }
+    ]
+}
