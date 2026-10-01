@@ -24,7 +24,7 @@
         "action": "Click",
         "post_delay": 3000,
         "next": [
-            "StartUpTapToEnter",
+            "StartUpTapToEnter"
         ],
         "timeout": 50000,
         "rate_limit": 1000

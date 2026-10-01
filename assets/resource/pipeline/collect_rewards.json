@@ -431,7 +431,7 @@
         "action": "Click",
         "post_delay": 2000,
         "next": [
-            "CollectStudioRewardsOK",
+            "CollectStudioRewardsOK"
         ],
         "timeout": 5000,
         "rate_limit": 500
