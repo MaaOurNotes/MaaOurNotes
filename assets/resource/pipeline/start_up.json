@@ -1,0 +1,65 @@
+{
+    "StartUp": {
+        "desc": "Wait for the OurNotes app icon.",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "StartUpClickApp"
+        ],
+        "timeout": 5000,
+        "rate_limit": 1000
+    },
+    "StartUpClickApp": {
+        "recognition": "TemplateMatch",
+        "template": "StartUp/OurNotesApp.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.7,
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "StartUpTapToEnter",
+        ],
+        "timeout": 50000,
+        "rate_limit": 1000
+    },
+    "StartUpTapToEnter": {
+        "max_hit": 8,
+        "desc": "Recognize the title, click the screen center once, then finish.",
+        "recognition": "TemplateMatch",
+        "template": "StartUp/OurNotesTitle.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.7,
+        "action": "Click",
+        "post_delay": 4000,
+        "next": [
+            "StartUpCheckMain",
+            "[JumpBack]StartUpTapToEnter"
+        ]
+    },
+    "StartUpCheckMain": {
+        "desc": "Recognize the main window.",
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/HomeGift.png",
+        "roi": [
+            1152,
+            100,
+            128,
+            116
+        ],
+        "threshold": 0.85,
+        "action": "DoNothing",
+        "next": []
+    }
+}

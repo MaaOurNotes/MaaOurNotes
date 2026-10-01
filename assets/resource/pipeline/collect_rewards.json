@@ -1,0 +1,512 @@
+{
+    "CollectRewards": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "CollectBeginnerRewards"
+        ]
+    },
+    "CollectBeginnerRewards": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "[JumpBack]BackToMain",
+            "CollectBeginnerRewardsOpenMission"
+        ],
+        "desc": "Optionally return home, open beginner missions, claim all, then return home.",
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectBeginnerRewardsOpenMission": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/BeginnerMission.png",
+        "roi": [
+            0,
+            100,
+            100,
+            100
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectBeginnerRewardsClaimAll"
+        ],
+        "timeout": 5000,
+        "rate_limit": 500
+    },
+    "CollectBeginnerRewardsClaimAll": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/ClaimAll.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectBeginnerRewardsOK"
+        ],
+        "timeout": 4000,
+        "rate_limit": 500
+    },
+    "ClickBeginnerMission": {
+        "desc": "Click the beginner mission icon on the left side of the 1280x720 screen.",
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/BeginnerMission.png",
+        "roi": [
+            0,
+            100,
+            100,
+            100
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000
+    },
+    "ClickTasks": {
+        "desc": "Click the task list icon in the upper-right area.",
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/Tasks.png",
+        "roi": [
+            1180,
+            180,
+            100,
+            120
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000
+    },
+    "ClickPass": {
+        "desc": "Click the pass icon on the right side.",
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/Pass.png",
+        "roi": [
+            1180,
+            280,
+            100,
+            110
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000
+    },
+    "CollectTasksRewards": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "[JumpBack]BackToMain",
+            "CollectTasksRewardsOpenMission"
+        ],
+        "desc": "Optionally return home, open rewards, claim all, then return home.",
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectTasksRewardsOpenMission": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/Tasks.png",
+        "roi": [
+            1180,
+            180,
+            100,
+            120
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectTasksRewardsClaimAll"
+        ],
+        "timeout": 5000,
+        "rate_limit": 500
+    },
+    "CollectTasksRewardsClaimAll": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/ClaimAll.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectTasksRewardsOK"
+        ],
+        "timeout": 4000,
+        "rate_limit": 500
+    },
+    "CollectPassRewards": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "[JumpBack]BackToMain",
+            "CollectPassRewardsOpenMission"
+        ],
+        "desc": "Optionally return home, open rewards, claim all, then return home.",
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectPassRewardsOpenMission": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/Pass.png",
+        "roi": [
+            1180,
+            280,
+            100,
+            110
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectPassRewardsOpenPassTasks"
+        ],
+        "timeout": 5000,
+        "rate_limit": 500
+    },
+    "CollectPassRewardsOpenPassTasks": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/PassTasks.png",
+        "roi": [
+            1044,
+            0,
+            236,
+            108
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectPassRewardsClaimAll"
+        ],
+        "timeout": 5000,
+        "rate_limit": 500
+    },
+    "CollectPassRewardsClaimAll": {
+        "max_hit": 3,
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/ClaimAll.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "[JumpBack]CloseWindow",
+            "[JumpBack]CollectPassRewardsOK",
+            "CollectPassRewardsClaimAll",
+            "BackToMain"
+        ],
+        "timeout": 4000,
+        "rate_limit": 500
+    },
+    "CollectGiftRewards": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "[JumpBack]BackToMain",
+            "CollectGiftRewardsOpenMission"
+        ],
+        "desc": "Optionally return home, open gifts, claim all, then return home.",
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectGiftRewardsOpenMission": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/HomeGift.png",
+        "roi": [
+            1152,
+            100,
+            128,
+            116
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectGiftRewardsClaimAll"
+        ],
+        "timeout": 5000,
+        "rate_limit": 500
+    },
+    "CollectGiftRewardsClaimAll": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/ClaimAll.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectGiftRewardsOK",
+            "CloseWindow"
+        ],
+        "timeout": 4000,
+        "rate_limit": 500
+    },
+    "CollectBeginnerRewardsOK": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "BackToMain"
+        ],
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectTasksRewardsOK": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectTasksRewardsClose"
+        ],
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectTasksRewardsClose": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Close.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [],
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectPassRewardsOK": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [],
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectGiftRewardsOK": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectGiftRewardsOK2"
+        ],
+        "timeout": 4000,
+        "rate_limit": 500
+    },
+    "BackToMain": {
+        "recognition": "TemplateMatch",
+        "template": "Common/BackToMain.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": []
+    },
+    "CollectGiftRewardsOK2": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectGiftRewardsOK3"
+        ],
+        "timeout": 4000,
+        "rate_limit": 500
+    },
+    "CollectGiftRewardsOK3": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "[JumpBack]CloseWindow",
+            "BackToMain"
+        ],
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CloseWindow": {
+        "desc": "Close the recognized window, then return to the calling flow.",
+        "recognition": "TemplateMatch",
+        "template": "Common/Close.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": []
+    },
+    "CollectStudioRewards": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "[JumpBack]BackToMain",
+            "CollectStudioRewardsOpenMission"
+        ],
+        "desc": "Optionally return home, open studio rewards, claim all, then return home.",
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectStudioRewardsOpenMission": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/Studio.png",
+        "roi": [
+            1180,
+            450,
+            100,
+            110
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectStudioRewardsClaimAll"
+        ],
+        "timeout": 5000,
+        "rate_limit": 500
+    },
+    "CollectStudioRewardsClaimAll": {
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/ClaimAll.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "CollectStudioRewardsOK",
+            "BackToMain"
+        ],
+        "timeout": 5000,
+        "rate_limit": 500
+    },
+    "CollectStudioRewardsOK": {
+        "max_hit": 10,
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "[JumpBack]CollectStudioLevelUp",
+            "CollectStudioRewardsOK",
+            "BackToMain"
+        ],
+        "timeout": 2000,
+        "rate_limit": 500
+    },
+    "CollectStudioLevelUp": {
+        "max_hit": 10,
+        "recognition": "OCR",
+        "expected": "Level Up",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.6,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [],
+        "timeout": 2000,
+        "rate_limit": 500
+    }
+}

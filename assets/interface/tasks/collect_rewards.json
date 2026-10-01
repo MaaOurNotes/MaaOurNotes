@@ -1,9 +1,41 @@
 {
     "task": [
         {
+            "name": "收取新手奖励",
+            "label": "$Task.CollectBeginnerRewards",
+            "entry": "CollectBeginnerRewards",
+            "group": [
+                "daily"
+            ]
+        },
+        {
             "name": "收取礼物",
-            "label": "$Task.CollectRewards",
-            "entry": "CollectRewards",
+            "label": "$Task.CollectGiftRewards",
+            "entry": "CollectGiftRewards",
+            "group": [
+                "daily"
+            ]
+        },
+        {
+            "name": "收取任务奖励",
+            "label": "$Task.CollectTasksRewards",
+            "entry": "CollectTasksRewards",
+            "group": [
+                "daily"
+            ]
+        },
+        {
+            "name": "收取通行证奖励",
+            "label": "$Task.CollectPassRewards",
+            "entry": "CollectPassRewards",
+            "group": [
+                "daily"
+            ]
+        },
+        {
+            "name": "收取录音室奖励",
+            "label": "$Task.CollectStudioRewards",
+            "entry": "CollectStudioRewards",
             "group": [
                 "daily"
             ]

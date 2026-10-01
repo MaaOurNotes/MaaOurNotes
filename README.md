@@ -9,19 +9,25 @@
 
 </div>
 
-OurNotes 小助手。
+OurNotes 小助手，为减轻土豆服务器清日常的痛苦而生。
 由 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动！  
-
+🌟喜欢本项目就在仓库右上角点个星星吧🌟
 
 ## 功能列表
+
 - 收取礼物
+~~更多功能施工中！~~
 
 ## 使用说明
-本助手不提供任何读谱打歌功能，仅帮助减少进行每日任务的工作量。
+
+请务必在遵守[BanG Dream! Our Notes](https://bdon.biligames.com/) 的相关规定和法律法规的前提下进行使用。
+请勿将本项目用于商业牟利、破坏游戏公平性、干扰服务正常运行或其他违法违规用途。
+项目作者及贡献者不对使用本项目造成的任何直接或间接损失承担责任。
+如不同意本声明，请停止下载、安装和使用本项目。
 
 ## 常见问题
 
-请阅读 [常见问题](./docs/zh_cn/develop/faq.md)。
+~~请阅读 [常见问题](./docs/zh_cn/develop/faq.md)。~~ 施工中！
 
 ## 鸣谢
 
@@ -39,6 +45,6 @@ OurNotes 小助手。
 
 感谢以下开发者对本项目作出的贡献:
 
-[![Contributors](https://contrib.rocks/image?repo=kazenohane/MaaOurnotes&max=1000)](https://github.com/MAA1999/M9A/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=kazenohane/MaaOurnotes&max=1000)](https://github.com/kazenohane/MaaOurnotes/graphs/contributors)
 
 ## 加入我们

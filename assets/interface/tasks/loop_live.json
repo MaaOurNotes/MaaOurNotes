@@ -1,0 +1,80 @@
+{
+    "task": [
+        {
+            "name": "挂机演出",
+            "label": "$Task.LoopLive",
+            "entry": "LoopLive",
+            "group": [
+                "standalone"
+            ],
+            "option": [
+                "演出歌曲",
+                "演出次数"
+            ]
+        }
+    ],
+    "option": {
+        "演出歌曲": {
+            "label": "$Option.LoopLive.SelectSong",
+            "type": "select",
+            "default_case": "六兆年と一夜物語",
+            "cases": [
+                {
+                    "name": "六兆年と一夜物語",
+                    "label": "六兆年と一夜物語",
+                    "pipeline_override": {
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "六兆年と一夜物語"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/MewType.png"
+                        }
+                    }
+                },
+                {
+                    "name": "unravel",
+                    "label": "unravel",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/millsage.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "unravel"
+                        }
+                    }
+                },
+            ]
+        },
+        "演出次数": {
+            "type": "input",
+            "label": "$Option.LoopLiveCount",
+            "inputs": [
+                {
+                    "name": "演出次数",
+                    "label": "$Option.LoopLiveCount.Input",
+                    "pipeline_type": "int",
+                    "default": "5",
+                    "verify": "^(0|[1-9]\\d*)$"
+                }
+            ],
+            "pipeline_override": {
+                "LoopLiveCount": {
+                    "max_hit": "{演出次数}"
+                }
+            },
+            "description": "设置挂机演出次数"
+        }
+    }
+}

@@ -1,0 +1,266 @@
+{
+    "LoopLive": {
+        "desc": "Return home if needed, then enter live within 3 seconds of recognition polling.",
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": [
+            "[JumpBack]BackToMain",
+            "LoopLiveClick"
+        ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveClick": {
+        "desc": "Match the live icon in the lower-right area of the 1280x720 screen and click it.",
+        "recognition": "TemplateMatch",
+        "template": "Common/LiveStart.png",
+        "roi": [
+            960,
+            440,
+            240,
+            270
+        ],
+        "threshold": 0.7,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveFreeLive"
+        ],
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveFreeLive": {
+        "recognition": "TemplateMatch",
+        "template": "Live/FreeLive.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveSelectBand"
+        ],
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveAll": {
+        "recognition": "TemplateMatch",
+        "template": "Live/All.png",
+        "roi": [
+            0,
+            0,
+            320,
+            720
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "timeout": 4000,
+        "rate_limit": 200,
+        "on_error": [
+            "LoopLiveSelectSong"
+        ]
+    },
+    "LoopLiveOriginal": {
+        "recognition": "OCR",
+        "expected": "原创",
+        "roi": [
+            0,
+            0,
+            320,
+            720
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "timeout": 2000,
+        "rate_limit": 200
+    },
+    "LoopLiveCover": {
+        "recognition": "OCR",
+        "expected": "翻唱",
+        "roi": [
+            0,
+            0,
+            320,
+            720
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "timeout": 2000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectBand": {
+        "recognition": "TemplateMatch",
+        "template": "Live/millsage.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveSelectType",
+            "[JumpBack]LoopLiveAll",
+            "[JumpBack]LoopLiveOriginal",
+            "[JumpBack]LoopLiveCover"
+        ],
+        "timeout": 2000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectType": {
+        "recognition": "OCR",
+        "expected": "翻唱",
+        "roi": [
+            0,
+            0,
+            320,
+            720
+        ],
+        "threshold": 0.8,
+        "action": "DoNothing",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveSelectSong"
+        ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    //(TODO: Refactor to custom recognition that includes scrolling and selection)
+    "LoopLiveSelectSong": {
+        "recognition": "OCR",
+        "expected": "unravel",
+        "roi": [
+            0,
+            0,
+            640,
+            720
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "LoopLiveCount",
+            "LoopLiveEnd"
+        ],
+        "rate_limit": 200
+    },
+    "LoopLiveCount": {
+        "max_hit": 5,
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "LoopLiveConfirm"
+        ],
+        "timeout": 8000
+    },
+    "LoopLiveConfirm": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            640,
+            360,
+            640,
+            360
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveStart"
+        ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveStart": {
+        "recognition": "TemplateMatch",
+        "template": "Live/LiveStart.png",
+        "roi": [
+            640,
+            360,
+            640,
+            360
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 90000,
+        "next": [
+            "LoopLiveFinish"
+        ],
+        "timeout": 300000,
+        "rate_limit": 3000
+    },
+    "LoopLiveFinish": {
+        "recognition": "TemplateMatch",
+        "template": "Live/LiveFinish.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveNextStep"
+        ],
+        "timeout": 5000,
+        "rate_limit": 300
+    },
+    "LoopLiveNextStep": {
+        "recognition": "OCR",
+        "expected": "下一步",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveNextStep",
+            "LoopLiveAgain"
+        ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveAgain": {
+        "recognition": "OCR",
+        "expected": "再次演出",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            "LoopLiveCount",
+            "LoopLiveEnd"
+        ],
+        "timeout": 10000,
+        "rate_limit": 200
+    },
+    "LoopLiveEnd": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "pre_delay": 0,
+        "post_delay": 0,
+        "next": []
+    }
+}

@@ -1,5 +1,6 @@
 {
     "Controller.Adb": "模拟器",
+    "Controller.Adb.Description": "请将模拟器分辨率固定为 1280×720，并使用横屏模式。",
     "Group.Daily": "日常任务",
     "Group.Standalone": "独立任务",
     "Resource.GlobalCn": "国际服（中文）",
@@ -7,5 +8,24 @@
     "Preset.DailyIdle": "日常-长草",
     "Preset.DailyIdle.desc": "日常-长草-描述文本",
     "Task.StartUp": "启动游戏",
-    "Task.CollectRewards": "收取奖励"
+    "Task.CollectRewards": "收取奖励",
+    "Task.StartUp.Description": "需要模拟器使用 1280×720 横屏。识别并点击游戏图标，等待主菜单出现后点击一次屏幕中央。",
+    "Option.StartUpWait": "启动后等待时间",
+    "Option.StartUpWait.Description": "如果点击时游戏还在加载，请增加等待时间。",
+    "Option.StartUpWait.15": "15 秒",
+    "Option.StartUpWait.30": "30 秒",
+    "Option.StartUpWait.60": "60 秒",
+    "Task.BeginnerMission": "点击新手任务",
+    "Task.Tasks": "点击任务列表",
+    "Task.Pass": "点击通行证",
+    "Task.Story": "点击故事",
+    "Task.CollectTasksRewards": "收取任务奖励",
+    "Task.CollectPassRewards": "收取通行证奖励",
+    "Task.CollectBeginnerRewards": "收取新手奖励",
+    "Task.CollectGiftRewards": "收取礼物",
+    "Task.CollectStudioRewards": "收取录音室奖励",
+    "Task.LoopLive": "挂机演出",
+    "Option.LoopLiveCount": "自定义演出次数",
+    "Option.LoopLiveCount.Input": "演出次数",
+    "Option.LoopLive.SelectSong": "选择歌曲"
 }

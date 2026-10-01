@@ -9,7 +9,48 @@
             ],
             "group": [
                 "daily"
+            ],
+            "description": "$Task.StartUp.Description",
+            "option": [
+                "StartUpWait"
             ]
         }
-    ]
+    ],
+    "option": {
+        "StartUpWait": {
+            "type": "select",
+            "label": "$Option.StartUpWait",
+            "description": "$Option.StartUpWait.Description",
+            "cases": [
+                {
+                    "name": "15",
+                    "label": "$Option.StartUpWait.15",
+                    "pipeline_override": {
+                        "StartUpClickApp": {
+                            "post_delay": 15000
+                        }
+                    }
+                },
+                {
+                    "name": "30",
+                    "label": "$Option.StartUpWait.30",
+                    "pipeline_override": {
+                        "StartUpClickApp": {
+                            "post_delay": 30000
+                        }
+                    }
+                },
+                {
+                    "name": "60",
+                    "label": "$Option.StartUpWait.60",
+                    "pipeline_override": {
+                        "StartUpClickApp": {
+                            "post_delay": 60000
+                        }
+                    }
+                }
+            ],
+            "default_case": "15"
+        }
+    }
 }

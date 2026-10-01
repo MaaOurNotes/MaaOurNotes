@@ -25,6 +25,7 @@
         {
             "name": "Adb",
             "label": "$Controller.Adb",
+            "description": "$Controller.Adb.Description",
             "type": "Adb",
             "display_short_side": 720 // 默认缩放分辨率的短边长度
         }
@@ -67,6 +68,7 @@
     "import": [
         "./interface/presets/daily.json",
         "./interface/tasks/start_up.json",
-        "./interface/tasks/collect_rewards.json"
+        "./interface/tasks/collect_rewards.json",
+        "./interface/tasks/loop_live.json"
     ]
 }
