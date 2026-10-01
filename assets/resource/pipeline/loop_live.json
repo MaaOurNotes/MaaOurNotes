@@ -28,7 +28,7 @@
         "next": [
             "LoopLiveFreeLive"
         ],
-        "timeout": 8000,
+        "timeout": 9000,
         "rate_limit": 200
     },
     "LoopLiveFreeLive": {
@@ -162,7 +162,7 @@
         "next": [
             "LoopLiveConfirm"
         ],
-        "timeout": 8000
+        "timeout": 9000
     },
     "LoopLiveConfirm": {
         "recognition": "OCR",
@@ -179,7 +179,7 @@
         "next": [
             "LoopLiveStart"
         ],
-        "timeout": 3000,
+        "timeout": 8000,
         "rate_limit": 200
     },
     "LoopLiveStart": {
@@ -198,7 +198,7 @@
             "LoopLiveFinish"
         ],
         "timeout": 300000,
-        "rate_limit": 3000
+        "rate_limit": 2000
     },
     "LoopLiveFinish": {
         "recognition": "TemplateMatch",
@@ -215,7 +215,7 @@
         "next": [
             "LoopLiveNextStep"
         ],
-        "timeout": 5000,
+        "timeout": 8000,
         "rate_limit": 300
     },
     "LoopLiveNextStep": {
@@ -234,7 +234,7 @@
             "LoopLiveNextStep",
             "LoopLiveAgain"
         ],
-        "timeout": 3000,
+        "timeout": 8000,
         "rate_limit": 200
     },
     "LoopLiveAgain": {
@@ -253,7 +253,7 @@
             "LoopLiveCount",
             "LoopLiveEnd"
         ],
-        "timeout": 10000,
+        "timeout": 8000,
         "rate_limit": 200
     },
     "LoopLiveEnd": {

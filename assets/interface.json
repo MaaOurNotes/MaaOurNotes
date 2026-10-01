@@ -9,7 +9,11 @@
     "description": "这是一个使用 MaaFramework 创建的新项目。",
     "contact": "CONTACT",
     "license": "LICENSE",
-    "welcome": "首次使用！欢迎使用 MAA!",
+    "languages": {
+        "zh_cn": "locales/zh_cn.json",
+        "en_us": "locales/en_us.json"
+    },
+    "welcome": "欢迎使用 MAA OurNotes!各类功能适配中...请多多包涵",
     // 填写项目地址和版本号可实现自动更新功能
     "github": "https://github.com/kazenohane/MaaOurNotes",
     "version": "1.0.0",

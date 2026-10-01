@@ -55,6 +55,24 @@
                         }
                     }
                 },
+                {
+                    "name": "Ave Mujica",
+                    "label": "Ave Mujica",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/AveMujica.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "原创"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "Ave Mujica"
+                        }
+                    }
+                }
             ]
         },
         "演出次数": {

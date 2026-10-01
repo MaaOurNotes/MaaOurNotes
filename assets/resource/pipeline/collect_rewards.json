@@ -50,9 +50,10 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
-            "CollectBeginnerRewardsOK"
+            "CollectBeginnerRewardsOK",
+            "BackToMain"
         ],
         "timeout": 4000,
         "rate_limit": 500
@@ -141,9 +142,10 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
-            "CollectTasksRewardsOK"
+            "CollectTasksRewardsOK",
+            "CloseWindow"
         ],
         "timeout": 4000,
         "rate_limit": 500
@@ -209,7 +211,7 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
             "[JumpBack]CloseWindow",
             "[JumpBack]CollectPassRewardsOK",
@@ -261,7 +263,7 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
             "CollectGiftRewardsOK",
             "CloseWindow"
@@ -280,7 +282,7 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
             "BackToMain"
         ],
@@ -348,9 +350,10 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
-            "CollectGiftRewardsOK2"
+            "[JumpBack]CloseWindow",
+            "BackToMain"
         ],
         "timeout": 4000,
         "rate_limit": 500
@@ -368,43 +371,6 @@
         "action": "Click",
         "post_delay": 1000,
         "next": []
-    },
-    "CollectGiftRewardsOK2": {
-        "recognition": "TemplateMatch",
-        "template": "Common/Confirm.png",
-        "roi": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "threshold": 0.8,
-        "action": "Click",
-        "post_delay": 1000,
-        "next": [
-            "CollectGiftRewardsOK3"
-        ],
-        "timeout": 4000,
-        "rate_limit": 500
-    },
-    "CollectGiftRewardsOK3": {
-        "recognition": "TemplateMatch",
-        "template": "Common/Confirm.png",
-        "roi": [
-            0,
-            0,
-            0,
-            0
-        ],
-        "threshold": 0.8,
-        "action": "Click",
-        "post_delay": 1000,
-        "next": [
-            "[JumpBack]CloseWindow",
-            "BackToMain"
-        ],
-        "timeout": 2000,
-        "rate_limit": 500
     },
     "CloseWindow": {
         "desc": "Close the recognized window, then return to the calling flow.",
@@ -463,10 +429,9 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
             "CollectStudioRewardsOK",
-            "BackToMain"
         ],
         "timeout": 5000,
         "rate_limit": 500
@@ -483,7 +448,7 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
             "[JumpBack]CollectStudioLevelUp",
             "CollectStudioRewardsOK",
