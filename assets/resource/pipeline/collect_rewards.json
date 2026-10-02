@@ -340,6 +340,7 @@
         "rate_limit": 500
     },
     "CollectGiftRewardsOK": {
+        "max_hit": 2,
         "recognition": "TemplateMatch",
         "template": "Common/Confirm.png",
         "roi": [
@@ -352,6 +353,7 @@
         "action": "Click",
         "post_delay": 2000,
         "next": [
+            "CollectGiftRewardsOK",
             "[JumpBack]CloseWindow",
             "BackToMain"
         ],
@@ -459,8 +461,8 @@
     },
     "CollectStudioLevelUp": {
         "max_hit": 10,
-        "recognition": "OCR",
-        "expected": "Level Up",
+        "recognition": "TemplateMatch",
+        "template": "CollectRewards/StudioLevelUp.png",
         "roi": [
             0,
             0,
