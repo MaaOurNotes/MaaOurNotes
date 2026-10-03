@@ -40,6 +40,7 @@
         "rate_limit": 500
     },
     "CollectBeginnerRewardsClaimAll": {
+        "max_hit": 3,
         "recognition": "TemplateMatch",
         "template": "CollectRewards/ClaimAll.png",
         "roi": [
@@ -53,6 +54,7 @@
         "post_delay": 2000,
         "next": [
             "CollectBeginnerRewardsOK",
+            "CollectBeginnerRewardsClaimAll",
             "BackToMain"
         ],
         "timeout": 4000,
@@ -132,6 +134,7 @@
         "rate_limit": 500
     },
     "CollectTasksRewardsClaimAll": {
+        "max_hit": 3,
         "recognition": "TemplateMatch",
         "template": "CollectRewards/ClaimAll.png",
         "roi": [
@@ -145,6 +148,7 @@
         "post_delay": 2000,
         "next": [
             "CollectTasksRewardsOK",
+            "CollectTasksRewardsClaimAll",
             "CloseWindow"
         ],
         "timeout": 4000,
@@ -253,6 +257,7 @@
         "rate_limit": 500
     },
     "CollectGiftRewardsClaimAll": {
+        "max_hit": 3,
         "recognition": "TemplateMatch",
         "template": "CollectRewards/ClaimAll.png",
         "roi": [
@@ -266,6 +271,7 @@
         "post_delay": 2000,
         "next": [
             "CollectGiftRewardsOK",
+            "CollectGiftRewardsClaimAll",
             "CloseWindow"
         ],
         "timeout": 4000,
@@ -421,6 +427,7 @@
         "rate_limit": 500
     },
     "CollectStudioRewardsClaimAll": {
+        "max_hit": 3,
         "recognition": "TemplateMatch",
         "template": "CollectRewards/ClaimAll.png",
         "roi": [
@@ -433,7 +440,8 @@
         "action": "Click",
         "post_delay": 2000,
         "next": [
-            "CollectStudioRewardsOK"
+            "CollectStudioRewardsOK",
+            "CollectStudioRewardsClaimAll"
         ],
         "timeout": 5000,
         "rate_limit": 500
@@ -468,6 +476,12 @@
             0,
             0,
             0
+        ],
+        "target_offset": [ //Click on level up text doesn't work.
+            150,
+            250,
+            10,
+            10
         ],
         "threshold": 0.6,
         "action": "Click",
