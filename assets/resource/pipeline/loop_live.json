@@ -269,7 +269,7 @@
         "next": [
             "LoopLiveConfirm"
         ],
-        "timeout": 10000,
+        "timeout": 30000,
         "rate_limit": 200
     },
     "LoopLiveEnd": {
