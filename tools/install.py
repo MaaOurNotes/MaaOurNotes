@@ -2,6 +2,8 @@ from pathlib import Path
 
 import shutil
 import sys
+import os
+from importlib.metadata import version as package_version
 
 try:
     import jsonc
@@ -13,6 +15,7 @@ except ModuleNotFoundError as e:
     ) from e
 
 from configure import configure_ocr_model
+from python_runtime import install_windows_python
 
 
 working_dir = Path(__file__).parent.parent.resolve()
@@ -137,6 +140,9 @@ def install_resource():
         interface = jsonc.load(f)
 
     interface["version"] = version
+    if os_name == "win" and arch == "x86_64":
+        interface["agent"]["child_exec"] = "./python/python.exe"
+        interface["agent"]["child_args"] = ["-B", "./agent/main.py"]
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
@@ -180,6 +186,9 @@ if __name__ == "__main__":
     install_resource()
     install_chores()
     install_agent()
+    if os_name == "win" and arch == "x86_64":
+        maafw_version = os.environ.get("MAAFW_VERSION") or package_version("maafw")
+        install_windows_python(install_path, maafw_version)
     rename_windows_launcher()
 
     print(f"Install to {install_path} successfully.")

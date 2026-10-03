@@ -32,7 +32,9 @@
 
 谱面来源：https://assets.bdon.moe/chart-site/assets/4db2aedbcafec0ff39e25da98ab734ef261930848b7a96265b28c83617445bd0.json
 
-运行环境需要 Python 和与框架版本匹配的 MaaFw 包。
+本地开发需要 Python 和与框架版本匹配的 MaaFw 包。
+Windows x64 发布包自带 `python/` 便携环境及 MaaFw 依赖，解压后无需额外安装 Python。
+打包时启动路径自动改为 `./python/python.exe`；其他平台暂时仍使用系统 Python。
 `interface.json` 的 `child_args` 相对于该文件所在目录。
 Agent 源码统一放在 `assets/agent`；谱面读取和回放动作都在 `chart_player.py`。
 本地 `assets/interface.json` 直接启动 `assets/agent/main.py`。

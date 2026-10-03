@@ -82,6 +82,7 @@ jobs:
           submodules: true
 
       - name: Download MaaFramework
+        id: download_maafw
         uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
@@ -118,6 +119,8 @@ jobs:
           rm -rf MFA/runtimes
       
       - name: Install
+        env:
+          MAAFW_VERSION: ${{ steps.download_maafw.outputs.tag_name }}
         shell: bash
         run: |
           if [[ "${{ matrix.os }}" != "android" ]]; then
