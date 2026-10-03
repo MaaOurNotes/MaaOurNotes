@@ -41,6 +41,13 @@ OurNotes 小助手，为减轻土豆服务器清日常的痛苦而生。
 - [MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia)  
   基于 Avalonia UI 构建的 MaaFramework 通用 GUI 解决方案
 
+### 数据支持
+[MoeNotes](https://github.com/StarMoe-org/moenotes)
+  由 StarMoe 团队为 BanG Dream! 企划 Our Notes 开发的静态数据与资料查看器。
+
+[nnnotes](https://github.com/MetaSekaiLab/nnnotes)
+  游戏文件的离线数据工具包
+
 ### 开发者
 
 感谢以下开发者对本项目作出的贡献:

@@ -25,6 +25,7 @@
     "Task.CollectGiftRewards": "收取礼物",
     "Task.CollectStudioRewards": "收取录音室奖励",
     "Task.LoopLive": "挂机演出",
+    "Task.PerformLive": "自动演出(仅简单)",
     "Option.LoopLiveCount": "自定义演出次数",
     "Option.LoopLiveCount.Input": "演出次数",
     "Option.LoopLive.SelectSong": "选择歌曲"

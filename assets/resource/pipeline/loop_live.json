@@ -149,8 +149,90 @@
         "action": "Click",
         "post_delay": 2000,
         "next": [
+            "LoopLiveSelectDifficulty"
+        ],
+        "rate_limit": 200
+    },
+    "LoopLiveSelectDifficulty": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveSelectEasy"
+        ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectEasy": {
+        "recognition": "OCR",
+        "expected": "EASY",
+        "roi": [
+            781,
+            563,
+            51,
+            17
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
             "LoopLiveConfirm"
         ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectNormal": {
+        "recognition": "OCR",
+        "expected": "NORMAL",
+        "roi": [
+            902,
+            563,
+            71,
+            17
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveConfirm"
+        ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectHard": {
+        "recognition": "OCR",
+        "expected": "HARD",
+        "roi": [
+            1044,
+            562,
+            51,
+            19
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveConfirm"
+        ],
+        "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectExpert": {
+        "recognition": "OCR",
+        "expected": "EXPERT",
+        "roi": [
+            1165,
+            562,
+            67,
+            19
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": [
+            "LoopLiveConfirm"
+        ],
+        "timeout": 3000,
         "rate_limit": 200
     },
     "LoopLiveCount": {
@@ -218,7 +300,7 @@
             "LoopLiveNextStep",
             "LoopLiveFinish"
         ],
-        "timeout": 8000,
+        "timeout": 9000,
         "rate_limit": 300
     },
     "LoopLiveRankUp": {
@@ -287,5 +369,61 @@
         "post_delay": 0,
         "timeout": 4000,
         "next": []
+    },
+    "LoopLivePerform": {
+        "desc": "PlayChart 动作读取本地谱面并回放单点与线性长条。坐标和起点需校准。",
+        "recognition": "TemplateMatch",
+        "template": "Live/StartMarker.png",
+        "roi": [
+            616,
+            538,
+            49,
+            14
+        ], /*
+        "recognition": "ColorMatch",
+        "lower": [
+            105,
+            85,
+            115
+        ],
+        "upper": [
+            187,
+            149,
+            157
+        ],
+        "roi": [
+            851,
+            26,
+            5,
+            5
+        ],
+        "count": 10,*/
+        "pre_delay": 0,
+        "post_delay": 0,
+        "threshold": 0.9,
+        "action": "Custom",
+        "custom_action": "PlayChart",
+        "custom_action_param": {
+            "song": "unravel",
+            "difficulty": "easy"
+        },
+        "next": [
+            "LoopLiveFinish"
+        ],
+        "timeout": 30000
+    },
+    "ReadTouchResult": {
+        "recognition": "OCR",
+        "roi": [
+            577,
+            427,
+            129,
+            48
+        ],
+        "expected": [
+            ".+"
+        ],
+        "pre_delay": 0,
+        "post_delay": 0
     }
 }

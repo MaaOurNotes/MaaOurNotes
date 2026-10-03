@@ -38,7 +38,7 @@ _（本篇为编写基础指引，仅介绍 custom recognition 和 custom action
 
 ## 内容编写
 
-本文将围绕仓库中附带的一个简单的 [demo](/agent) 示例进行讲解。
+本文将围绕仓库中附带的一个简单的 [demo](/assets/agent) 示例进行讲解。
 
 在开始前，请确保你已经安装了 Python 依赖。
 
@@ -53,7 +53,7 @@ pip install MaaFw
 
 #### 基本结构
 
-完整内容请参考 [my_reco.py](/agent/my_reco.py)。
+完整内容请参考 [my_reco.py](/assets/agent/my_reco.py)。
 
 ```python
 from maa.agent.agent_server import AgentServer
@@ -118,7 +118,7 @@ rois = param["candidate_rois"]
 
 #### 基本结构
 
-完整内容请参考 [my_action.py](/agent/my_action.py)。
+完整内容请参考 [my_action.py](/assets/agent/my_action.py)。
 
 ```python
 # my_action.py

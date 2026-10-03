@@ -25,6 +25,7 @@
     "Task.CollectGiftRewards": "Collect Gifts",
     "Task.CollectStudioRewards": "Collect Studio Rewards",
     "Task.LoopLive": "Loop Live",
+    "Task.PerformLive": "Perform Live(easy only)",
     "Option.LoopLiveCount": "Custom live count",
     "Option.LoopLiveCount.Input": "Number of lives",
     "Option.LoopLive.SelectSong": "Select Song"

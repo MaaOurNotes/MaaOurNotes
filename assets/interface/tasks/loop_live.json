@@ -11,13 +11,34 @@
                 "演出歌曲",
                 "演出次数"
             ]
+        },
+        {
+            "name": "自动演出(仅简单)",
+            "label": "$Task.PerformLive",
+            "entry": "LoopLive",
+            "group": [
+                "standalone"
+            ],
+            "option": [
+                "自动演出歌曲",
+                "演出次数"
+            ],
+            "pipeline_override": {
+                "LoopLiveStart": {
+                    "next": [
+                        "LoopLivePerform"
+                    ],
+                    "post_delay": 3000,
+                    "rate_limit": 0
+                }
+            }
         }
     ],
     "option": {
         "演出歌曲": {
             "label": "$Option.LoopLive.SelectSong",
             "type": "select",
-            "default_case": "六兆年と一夜物語",
+            "default_case": "unravel",
             "cases": [
                 {
                     "name": "六兆年と一夜物語",
@@ -34,6 +55,9 @@
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
                             "template": "Live/MewType.png"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectExpert"
                         }
                     }
                 },
@@ -52,6 +76,9 @@
                         "LoopLiveSelectSong": {
                             "recognition": "OCR",
                             "expected": "unravel"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectExpert"
                         }
                     }
                 },
@@ -70,6 +97,9 @@
                         "LoopLiveSelectSong": {
                             "recognition": "OCR",
                             "expected": "Ave Mujica"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectExpert"
                         }
                     }
                 }
@@ -83,7 +113,7 @@
                     "name": "演出次数",
                     "label": "$Option.LoopLiveCount.Input",
                     "pipeline_type": "int",
-                    "default": "5",
+                    "default": "3",
                     "verify": "^(0|[1-9]\\d*)$"
                 }
             ],
@@ -93,6 +123,94 @@
                 }
             },
             "description": "设置挂机演出次数"
+        },
+        "自动演出歌曲": {
+            "label": "$Option.LoopLive.SelectSong",
+            "type": "select",
+            "default_case": "unravel · easy",
+            "cases": [
+                {
+                    "name": "unravel · easy",
+                    "label": "unravel · easy",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/millsage.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "unravel"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectEasy"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "unravel",
+                                "difficulty": "easy"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "六兆年と一夜物語 · easy",
+                    "label": "六兆年と一夜物語 · easy",
+                    "pipeline_override": {
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "六兆年と一夜物語"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/MewType.png"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectEasy"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "六兆年と一夜物語",
+                                "difficulty": "easy"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Ave Mujica · easy",
+                    "label": "Ave Mujica · easy",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/AveMujica.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "原创"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "Ave Mujica"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectEasy"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "Ave Mujica",
+                                "difficulty": "easy"
+                            }
+                        }
+                    }
+                }
+            ]
         }
     }
 }

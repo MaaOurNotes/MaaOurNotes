@@ -104,6 +104,12 @@ def install_resource():
     configure_ocr_model()
 
     shutil.copytree(
+        working_dir / "assets" / "charts",
+        install_path / "charts",
+        dirs_exist_ok=True,
+    )
+
+    shutil.copytree(
         working_dir / "assets" / "resource",
         install_path / "resource",
         dirs_exist_ok=True,
@@ -149,9 +155,10 @@ def install_chores():
 
 def install_agent():
     shutil.copytree(
-        working_dir / "agent",
+        working_dir / "assets" / "agent",
         install_path / "agent",
         dirs_exist_ok=True,
+        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
     )
 
 
