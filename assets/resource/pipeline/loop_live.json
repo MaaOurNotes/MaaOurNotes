@@ -284,7 +284,10 @@
     },
     "LoopLiveFinish": {
         "recognition": "TemplateMatch",
-        "template": "Live/LiveFinish.png",
+        "template": [
+            "Live/LiveFinish.png",
+            "Live/LiveClear.png"
+        ],
         "roi": [
             0,
             0,
