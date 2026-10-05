@@ -21,7 +21,8 @@
             ],
             "option": [
                 "自动演出歌曲",
-                "演出次数"
+                "演出次数",
+                "自动清火"
             ],
             "pipeline_override": {
                 "LoopLiveStart": {
@@ -130,6 +131,33 @@
             "default_case": "unravel · easy",
             "cases": [
                 {
+                    "name": "unravel · hard",
+                    "label": "unravel · hard",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/millsage.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "unravel"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectHard"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "unravel",
+                                "difficulty": "hard"
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "unravel · easy",
                     "label": "unravel · easy",
                     "pipeline_override": {
@@ -207,6 +235,67 @@
                                 "song": "Ave Mujica",
                                 "difficulty": "easy"
                             }
+                        }
+                    }
+                },
+                {
+                    "name": "Ave Mujica · expert",
+                    "label": "Ave Mujica · expert",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/AveMujica.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "原创"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "Ave Mujica"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectExpert"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "Ave Mujica",
+                                "difficulty": "expert"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "自动清火": {
+            "label": "$Option.LoopLive.UseLiveBoost",
+            "type": "select",
+            "default_case": "19",
+            "cases": [
+                {
+                    "name": "19",
+                    "label": "19",
+                    "pipeline_override": {
+                        "LoopLiveCheckLiveBoost": {
+                            "expected": "19|2[0-9]"
+                        }
+                    }
+                },
+                {
+                    "name": "14",
+                    "label": "14",
+                    "pipeline_override": {
+                        "LoopLiveCheckLiveBoost": {
+                            "expected": "14|1[5-9]|2[0-9]"
+                        }
+                    }
+                },
+                {
+                    "name": "9",
+                    "label": "9",
+                    "pipeline_override": {
+                        "LoopLiveCheckLiveBoost": {
+                            "expected": "9|1[0-9]|2[0-9]"
                         }
                     }
                 }

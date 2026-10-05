@@ -255,8 +255,133 @@
         ],
         "threshold": 0.8,
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 2000,
         "next": [
+            "LoopLiveCheckLiveBoost",
+            "LoopLiveResetLiveBoost",
+            "LoopLiveCount",
+            "[JumpBack]BackToMain",
+            "LoopLiveEnd"
+        ],
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveCheckLiveBoost": {
+        "recognition": "OCR",
+        "expected": "1[6-9]|20",
+        "roi": [
+            1044,
+            23,
+            27,
+            25
+        ],
+        "action": "DoNothing",
+        "next": [
+            "LoopLiveSelectLiveBoost"
+        ],
+        "anchor": {
+            "LoopLiveSelectFire": "LoopLiveSelectThreeFireSwipe"
+        },
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveResetLiveBoost": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "next": [
+            "LoopLiveSelectLiveBoost"
+        ],
+        "anchor": {
+            "LoopLiveSelectFire": "LoopLiveSelectZeroFireSwipe"
+        }
+    },
+    "LoopLiveSelectLiveBoost": {
+        "recognition": "OCR",
+        "expected": "消耗LB",
+        "roi": [
+            905,
+            652,
+            73,
+            28
+        ],
+        "action": "Click",
+        "next": [
+            "[Anchor]LoopLiveSelectFire"
+        ],
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectThreeFireSwipe": {
+        "recognition": "TemplateMatch",
+        "template": "Live/LiveBoostConfiguration.png",
+        "begin": [
+            498,
+            209
+        ],
+        "end": [
+            498,
+            329
+        ],
+        "action": "Swipe",
+        "next": [
+            "LoopLiveSelectThreeFireClick",
+            "LoopLiveSelectThreeFireSwipe"
+        ],
+        "post_delay": 1000,
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectThreeFireClick": {
+        "recognition": "OCR",
+        "expected": "3",
+        "roi": [
+            413,
+            78,
+            54,
+            247
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]LoopLiveOk",
+            "LoopLiveCount",
+            "[JumpBack]BackToMain",
+            "LoopLiveEnd"
+        ],
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectZeroFireSwipe": {
+        "recognition": "TemplateMatch",
+        "template": "Live/LiveBoostConfiguration.png",
+        "begin": [
+            498,
+            209
+        ],
+        "end": [
+            498,
+            89
+        ],
+        "action": "Swipe",
+        "next": [
+            "LoopLiveSelectZeroFireClick",
+            "LoopLiveSelectZeroFireSwipe"
+        ],
+        "post_delay": 1000,
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectZeroFireClick": {
+        "recognition": "OCR",
+        "expected": "0",
+        "roi": [
+            413,
+            78,
+            54,
+            247
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]LoopLiveOk",
             "LoopLiveCount",
             "[JumpBack]BackToMain",
             "LoopLiveEnd"
@@ -295,6 +420,7 @@
             0
         ],
         "threshold": 0.8,
+        "pre_delay": 2000,
         "action": "Click",
         "post_delay": 1000,
         "next": [
@@ -334,7 +460,8 @@
         "post_delay": 1000,
         "next": [
             "LoopLiveNextStep",
-            "LoopLiveAgain"
+            "LoopLiveAgain",
+            "[JumpBack]LoopLiveRankUp"
         ],
         "timeout": 8000,
         "rate_limit": 200
@@ -350,9 +477,11 @@
         ],
         "threshold": 0.8,
         "action": "Click",
+        "pre_delay": 1000,
         "post_delay": 3000,
         "next": [
-            "LoopLiveConfirm"
+            "LoopLiveConfirm",
+            "LoopLiveAgain"
         ],
         "timeout": 30000,
         "rate_limit": 200
@@ -413,7 +542,7 @@
         "next": [
             "LoopLiveFinish"
         ],
-        "timeout": 30000
+        "timeout": 180000
     },
     "ReadTouchResult": {
         "recognition": "OCR",
@@ -428,5 +557,19 @@
         ],
         "pre_delay": 0,
         "post_delay": 0
+    },
+    "LoopLiveOk": {
+        "recognition": "TemplateMatch",
+        "template": "Common/Confirm.png",
+        "roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "threshold": 0.8,
+        "action": "Click",
+        "post_delay": 1000,
+        "next": []
     }
 }

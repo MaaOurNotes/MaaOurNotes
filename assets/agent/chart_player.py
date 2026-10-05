@@ -23,8 +23,10 @@ TAP_MS = 30  # 普通单点从按下到抬起的时长，单位为毫秒；长�
 
 chart_files = {
                 ("unravel", "easy"): "unravel_easy.json",
+                ("unravel", "hard"): "unravel_hard.json",
                 ("ave mujica", "easy"): "ave_mujica_easy.json",
                 ("六兆年と一夜物語", "easy"): "six_trillion_easy.json",
+                ("ave mujica", "expert"): "ave_mujica_expert.json",
 }
 
 
@@ -233,7 +235,18 @@ class PlayChart(CustomAction):
                 if context.tasker.stopping:
                     return False
                 if time.perf_counter() - target > 0.25:
-                    raise RuntimeError("回放迟到超过 250 ms，请调整起点或检查输入性能")
+                    # 放弃迟到事件，并立即释放该触点，避免漏掉抬手后持续按住。
+                    print("回放迟到超过 250 ms，请调整起点或检查输入性能")
+                    if contact in active:
+                        job = controller.post_touch_up(contact=contact)
+                        job.wait()
+                        if not job.succeeded:
+                            raise RuntimeError(f"释放迟到触点失败：contact={contact}")
+                        active.discard(contact)
+                    continue
+                # 按下被跳过或触点已提前释放时，不再发送对应的移动和抬手。
+                if kind != "down" and contact not in active:
+                    continue
                 touch_fraction, y_offset = fraction if isinstance(fraction, tuple) else (fraction, 0)
                 touch_x = round(left + touch_fraction * (right - left))
                 touch_y = max(0, round(y + y_offset))
