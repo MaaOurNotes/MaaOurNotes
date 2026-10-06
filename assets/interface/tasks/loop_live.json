@@ -42,20 +42,20 @@
             "default_case": "unravel",
             "cases": [
                 {
-                    "name": "六兆年と一夜物語",
-                    "label": "六兆年と一夜物語",
+                    "name": "Ave Mujica",
+                    "label": "Ave Mujica·Ave Mujica·expert",
                     "pipeline_override": {
-                        "LoopLiveSelectSong": {
-                            "recognition": "OCR",
-                            "expected": "六兆年と一夜物語"
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/AveMujica.png"
                         },
                         "LoopLiveSelectType": {
                             "recognition": "OCR",
-                            "expected": "翻唱"
+                            "expected": "原创"
                         },
-                        "LoopLiveSelectBand": {
-                            "recognition": "TemplateMatch",
-                            "template": "Live/MewType.png"
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "Ave Mujica"
                         },
                         "LoopLiveSelectDifficulty": {
                             "next": "LoopLiveSelectExpert"
@@ -64,7 +64,7 @@
                 },
                 {
                     "name": "unravel",
-                    "label": "unravel",
+                    "label": "unravel·millsage·expert",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -84,20 +84,20 @@
                     }
                 },
                 {
-                    "name": "Ave Mujica",
-                    "label": "Ave Mujica",
+                    "name": "六兆年と一夜物語",
+                    "label": "六兆年と一夜物語·梦限大MewType·expert",
                     "pipeline_override": {
-                        "LoopLiveSelectBand": {
-                            "recognition": "TemplateMatch",
-                            "template": "Live/AveMujica.png"
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "六兆年と一夜物語"
                         },
                         "LoopLiveSelectType": {
                             "recognition": "OCR",
-                            "expected": "原创"
+                            "expected": "翻唱"
                         },
-                        "LoopLiveSelectSong": {
-                            "recognition": "OCR",
-                            "expected": "Ave Mujica"
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/MewType.png"
                         },
                         "LoopLiveSelectDifficulty": {
                             "next": "LoopLiveSelectExpert"
@@ -131,89 +131,8 @@
             "default_case": "unravel · easy",
             "cases": [
                 {
-                    "name": "unravel · hard",
-                    "label": "unravel · hard",
-                    "pipeline_override": {
-                        "LoopLiveSelectBand": {
-                            "recognition": "TemplateMatch",
-                            "template": "Live/millsage.png"
-                        },
-                        "LoopLiveSelectType": {
-                            "recognition": "OCR",
-                            "expected": "翻唱"
-                        },
-                        "LoopLiveSelectSong": {
-                            "recognition": "OCR",
-                            "expected": "unravel"
-                        },
-                        "LoopLiveSelectDifficulty": {
-                            "next": "LoopLiveSelectHard"
-                        },
-                        "LoopLivePerform": {
-                            "custom_action_param": {
-                                "song": "unravel",
-                                "difficulty": "hard"
-                            }
-                        }
-                    }
-                },
-                {
-                    "name": "unravel · easy",
-                    "label": "unravel · easy",
-                    "pipeline_override": {
-                        "LoopLiveSelectBand": {
-                            "recognition": "TemplateMatch",
-                            "template": "Live/millsage.png"
-                        },
-                        "LoopLiveSelectType": {
-                            "recognition": "OCR",
-                            "expected": "翻唱"
-                        },
-                        "LoopLiveSelectSong": {
-                            "recognition": "OCR",
-                            "expected": "unravel"
-                        },
-                        "LoopLiveSelectDifficulty": {
-                            "next": "LoopLiveSelectEasy"
-                        },
-                        "LoopLivePerform": {
-                            "custom_action_param": {
-                                "song": "unravel",
-                                "difficulty": "easy"
-                            }
-                        }
-                    }
-                },
-                {
-                    "name": "六兆年と一夜物語 · easy",
-                    "label": "六兆年と一夜物語 · easy",
-                    "pipeline_override": {
-                        "LoopLiveSelectSong": {
-                            "recognition": "OCR",
-                            "expected": "六兆年と一夜物語"
-                        },
-                        "LoopLiveSelectType": {
-                            "recognition": "OCR",
-                            "expected": "翻唱"
-                        },
-                        "LoopLiveSelectBand": {
-                            "recognition": "TemplateMatch",
-                            "template": "Live/MewType.png"
-                        },
-                        "LoopLiveSelectDifficulty": {
-                            "next": "LoopLiveSelectEasy"
-                        },
-                        "LoopLivePerform": {
-                            "custom_action_param": {
-                                "song": "六兆年と一夜物語",
-                                "difficulty": "easy"
-                            }
-                        }
-                    }
-                },
-                {
                     "name": "Ave Mujica · easy",
-                    "label": "Ave Mujica · easy",
+                    "label": "Ave Mujica·Ave Mujica·easy",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -240,7 +159,7 @@
                 },
                 {
                     "name": "Ave Mujica · expert",
-                    "label": "Ave Mujica · expert",
+                    "label": "Ave Mujica·Ave Mujica·expert",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -261,6 +180,168 @@
                             "custom_action_param": {
                                 "song": "Ave Mujica",
                                 "difficulty": "expert"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "unravel · hard",
+                    "label": "unravel·millsage·hard",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/millsage.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "unravel"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectHard"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "unravel",
+                                "difficulty": "hard"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "unravel · easy",
+                    "label": "unravel·millsage·easy",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/millsage.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "unravel"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectEasy"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "unravel",
+                                "difficulty": "easy"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "六兆年と一夜物語 · hard",
+                    "label": "六兆年と一夜物語·梦限大MewType·hard",
+                    "pipeline_override": {
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "六兆年と一夜物語"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/MewType.png"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectHard"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "六兆年と一夜物語",
+                                "difficulty": "hard"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "六兆年と一夜物語 · easy",
+                    "label": "六兆年と一夜物語·梦限大MewType·easy",
+                    "pipeline_override": {
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "六兆年と一夜物語"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "翻唱"
+                        },
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/MewType.png"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectEasy"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "六兆年と一夜物語",
+                                "difficulty": "easy"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "春日影(MyGO!!!!! ver.) · hard",
+                    "label": "春日影(MyGO!!!!! ver.)·MyGO!!!!!·hard",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/All.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "原创"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "春日影\\s*\\(MyGO!!!!!\\s*ver\\.\\)"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectHard"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "春日影(MyGO!!!!! ver.)",
+                                "difficulty": "hard"
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Homie’s Tie!! · hard",
+                    "label": "Homie’s Tie!!·一家Dumb Rock!·hard",
+                    "pipeline_override": {
+                        "LoopLiveSelectBand": {
+                            "recognition": "TemplateMatch",
+                            "template": "Live/All.png"
+                        },
+                        "LoopLiveSelectType": {
+                            "recognition": "OCR",
+                            "expected": "原创"
+                        },
+                        "LoopLiveSelectSong": {
+                            "recognition": "OCR",
+                            "expected": "Homie['’]s\\s*Tie!!"
+                        },
+                        "LoopLiveSelectDifficulty": {
+                            "next": "LoopLiveSelectHard"
+                        },
+                        "LoopLivePerform": {
+                            "custom_action_param": {
+                                "song": "Homie’s Tie!!",
+                                "difficulty": "hard"
                             }
                         }
                     }

@@ -26,7 +26,10 @@ chart_files = {
                 ("unravel", "hard"): "unravel_hard.json",
                 ("ave mujica", "easy"): "ave_mujica_easy.json",
                 ("六兆年と一夜物語", "easy"): "six_trillion_easy.json",
+                ("六兆年と一夜物語", "hard"): "six_trillion_hard.json",
                 ("ave mujica", "expert"): "ave_mujica_expert.json",
+                ("春日影(mygo!!!!! ver.)", "hard"): "haruhikage_mygo_hard.json",
+                ("homie’s tie!!", "hard"): "homies_tie_hard.json",
 }
 
 
