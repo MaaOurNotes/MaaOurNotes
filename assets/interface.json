@@ -66,6 +66,7 @@
     ],
     "import": [
         "./interface/presets/daily.json",
+        "./interface/presets/live.json",
         "./interface/tasks/start_up.json",
         "./interface/tasks/collect_rewards.json",
         "./interface/tasks/loop_live.json"

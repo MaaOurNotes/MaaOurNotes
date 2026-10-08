@@ -7,6 +7,8 @@
     "Resource.GlobalJp": "Global (JP)",
     "Preset.DailyIdle": "Daily - Events",
     "Preset.DailyIdle.desc": "Daily - Events Desc Text",
+    "Preset.AutoLive": "Loop Live",
+    "Preset.AutoLive.desc": "Loop lives and perform them automatically.",
     "Task.StartUp": "Start Game",
     "Task.CollectRewards": "Collect Rewards",
     "Task.StartUp.Description": "Requires a 1280x720 landscape emulator. Find and click the game icon, then click the screen center once when the home menu appears.",

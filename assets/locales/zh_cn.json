@@ -7,6 +7,8 @@
     "Resource.GlobalJp": "国际服（日文）",
     "Preset.DailyIdle": "日常-长草",
     "Preset.DailyIdle.desc": "日常-长草-描述文本",
+    "Preset.AutoLive": "挂机演出",
+    "Preset.AutoLive.desc": "挂机演出并自动完成演出。",
     "Task.StartUp": "启动游戏",
     "Task.CollectRewards": "收取奖励",
     "Task.StartUp.Description": "需要模拟器使用 1280×720 横屏。识别并点击游戏图标，等待主菜单出现后点击一次屏幕中央。",

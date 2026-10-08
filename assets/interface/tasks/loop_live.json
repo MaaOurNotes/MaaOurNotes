@@ -9,11 +9,12 @@
             ],
             "option": [
                 "演出歌曲",
-                "演出次数"
+                "演出次数",
+                "自动清火"
             ]
         },
         {
-            "name": "自动演出(仅简单)",
+            "name": "自动演出",
             "label": "$Task.PerformLive",
             "entry": "LoopLive",
             "group": [
@@ -43,7 +44,7 @@
             "cases": [
                 {
                     "name": "Ave Mujica",
-                    "label": "Ave Mujica·Ave Mujica·expert",
+                    "label": "Ave Mujica·expert·Ave Mujica",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -64,7 +65,7 @@
                 },
                 {
                     "name": "unravel",
-                    "label": "unravel·millsage·expert",
+                    "label": "unravel·expert·millsage",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -85,7 +86,7 @@
                 },
                 {
                     "name": "六兆年と一夜物語",
-                    "label": "六兆年と一夜物語·梦限大MewType·expert",
+                    "label": "六兆年と一夜物語·expert·梦限大MewType",
                     "pipeline_override": {
                         "LoopLiveSelectSong": {
                             "recognition": "OCR",
@@ -132,7 +133,7 @@
             "cases": [
                 {
                     "name": "Ave Mujica · easy",
-                    "label": "Ave Mujica·Ave Mujica·easy",
+                    "label": "Ave Mujica·easy·Ave Mujica",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -159,7 +160,7 @@
                 },
                 {
                     "name": "Ave Mujica · expert",
-                    "label": "Ave Mujica·Ave Mujica·expert",
+                    "label": "Ave Mujica·expert·Ave Mujica",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -186,7 +187,7 @@
                 },
                 {
                     "name": "unravel · hard",
-                    "label": "unravel·millsage·hard",
+                    "label": "unravel·hard·millsage",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -213,7 +214,7 @@
                 },
                 {
                     "name": "unravel · easy",
-                    "label": "unravel·millsage·easy",
+                    "label": "unravel·easy·millsage",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -240,7 +241,7 @@
                 },
                 {
                     "name": "六兆年と一夜物語 · hard",
-                    "label": "六兆年と一夜物語·梦限大MewType·hard",
+                    "label": "六兆年と一夜物語·hard·梦限大MewType",
                     "pipeline_override": {
                         "LoopLiveSelectSong": {
                             "recognition": "OCR",
@@ -267,7 +268,7 @@
                 },
                 {
                     "name": "六兆年と一夜物語 · easy",
-                    "label": "六兆年と一夜物語·梦限大MewType·easy",
+                    "label": "六兆年と一夜物語·easy·梦限大MewType",
                     "pipeline_override": {
                         "LoopLiveSelectSong": {
                             "recognition": "OCR",
@@ -294,7 +295,7 @@
                 },
                 {
                     "name": "春日影(MyGO!!!!! ver.) · hard",
-                    "label": "春日影(MyGO!!!!! ver.)·MyGO!!!!!·hard",
+                    "label": "春日影(MyGO!!!!! ver.)·hard·MyGO!!!!!",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
@@ -321,7 +322,7 @@
                 },
                 {
                     "name": "Homie’s Tie!! · hard",
-                    "label": "Homie’s Tie!!·一家Dumb Rock!·hard",
+                    "label": "Homie’s Tie!!·hard·一家Dumb Rock!",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",

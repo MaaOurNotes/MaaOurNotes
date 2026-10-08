@@ -1,0 +1,17 @@
+{
+    "preset": [
+        {
+            "name": "挂机演出",
+            "label": "$Preset.AutoLive",
+            "description": "$Preset.AutoLive.desc",
+            "task": [
+                {
+                    "name": "挂机演出"
+                },
+                {
+                    "name": "自动演出"
+                }
+            ]
+        }
+    ]
+}

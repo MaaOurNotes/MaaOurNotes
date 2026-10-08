@@ -15,7 +15,8 @@ OurNotes 小助手，为减轻土豆服务器清日常的痛苦而生。
 
 ## 功能列表
 
-- 收取礼物
+- 日常收取
+- 挂机演出
 ~~更多功能施工中！~~
 
 ## 使用说明
@@ -55,3 +56,5 @@ OurNotes 小助手，为减轻土豆服务器清日常的痛苦而生。
 [![Contributors](https://contrib.rocks/image?repo=kazenohane/MaaOurnotes&max=1000)](https://github.com/kazenohane/MaaOurnotes/graphs/contributors)
 
 ## 加入我们
+- MaaOurNotes 交流群 
+    QQ群 1128037204 
