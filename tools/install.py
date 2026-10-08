@@ -127,6 +127,11 @@ def install_resource():
         install_path / "locales",
         dirs_exist_ok=True,
     )
+    (install_path / "config").mkdir(parents=True, exist_ok=True)
+    shutil.copy2(
+        working_dir / "assets" / "config.template.json",
+        install_path / "config" / "config.template.json",
+    )
     shutil.copy2(
         working_dir / "assets" / "CONTACT",
         install_path / "CONTACT",
