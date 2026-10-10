@@ -1,6 +1,19 @@
 {
     "task": [
         {
+            "name": "自动清火",
+            "label": "$Task.UseFire",
+            "entry": "UseLiveBoostWhenFull",
+            "group": [
+                "standalone"
+            ],
+            "option": [
+                "触发清火",
+                "是否挂机",
+                "自动演出歌曲"
+            ]
+        },
+        {
             "name": "挂机演出",
             "label": "$Task.LoopLive",
             "entry": "LoopLive",
@@ -10,7 +23,7 @@
             "option": [
                 "演出歌曲",
                 "演出次数",
-                "自动清火"
+                "触发清火"
             ]
         },
         {
@@ -23,7 +36,7 @@
             "option": [
                 "自动演出歌曲",
                 "演出次数",
-                "自动清火"
+                "触发清火"
             ],
             "pipeline_override": {
                 "LoopLiveStart": {
@@ -124,7 +137,7 @@
                     "max_hit": "{演出次数}"
                 }
             },
-            "description": "设置挂机演出次数"
+            "description": "$Option.LoopLiveCount.Description"
         },
         "自动演出歌曲": {
             "label": "$Option.LoopLive.SelectSong",
@@ -349,45 +362,120 @@
                 }
             ]
         },
-        "自动清火": {
-            "description": "大于等于预设值时自动清火",
+        "触发清火": {
+            "description": "$Option.LoopLive.UseLiveBoost.Description",
             "label": "$Option.LoopLive.UseLiveBoost",
             "type": "select",
-            "default_case": "19",
+            "default_case": "启用",
             "cases": [
                 {
-                    "name": "19",
-                    "label": "19",
+                    "name": "启用",
+                    "label": "$Option.LoopLive.UseLiveBoost.Enabled",
+                    "option": [
+                        "清火阈值"
+                    ],
                     "pipeline_override": {
                         "LoopLiveCheckLiveBoost": {
-                            "expected": "19|2[0-9]"
-                        }
-                    }
-                },
-                {
-                    "name": "14",
-                    "label": "14",
-                    "pipeline_override": {
-                        "LoopLiveCheckLiveBoost": {
-                            "expected": "14|1[5-9]|2[0-9]"
-                        }
-                    }
-                },
-                {
-                    "name": "9",
-                    "label": "9",
-                    "pipeline_override": {
-                        "LoopLiveCheckLiveBoost": {
-                            "expected": "9|1[0-9]|2[0-9]"
+                            "enabled": true
+                        },
+                        "CheckFirePeriodically": {
+                            "enabled": true
+                        },
+                        "UseLiveBoostWhenFull": {
+                            "next": [
+                                "[JumpBack]BackToMain",
+                                "CheckFirePeriodically"
+                            ]
                         }
                     }
                 },
                 {
                     "name": "不使用",
-                    "label": "不使用",
+                    "label": "$Option.LoopLive.UseLiveBoost.Disabled",
                     "pipeline_override": {
                         "LoopLiveCheckLiveBoost": {
-                            "expected": "999"
+                            "enabled": false
+                        },
+                        "CheckFirePeriodically": {
+                            "enabled": false
+                        },
+                        "UseLiveBoostWhenFull": {
+                            "next": [
+                                "[JumpBack]BackToMain",
+                                "LoopLiveEnd"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "清火阈值": {
+            "type": "input",
+            "label": "$Option.LoopLive.UseLiveBoost.Threshold",
+            "description": "$Option.LoopLive.UseLiveBoost.Description",
+            "inputs": [
+                {
+                    "name": "清火阈值",
+                    "label": "$Option.LoopLive.UseLiveBoost.Threshold",
+                    "pipeline_type": "int",
+                    "default": "18",
+                    "verify": "^(0|[1-9]\\d*)$"
+                }
+            ],
+            "pipeline_override": {
+                "LoopLiveCheckLiveBoost": {
+                    "custom_recognition_param": {
+                        "threshold": "{清火阈值}",
+                        "roi": [
+                            1044,
+                            23,
+                            27,
+                            25
+                        ]
+                    }
+                },
+                "CheckFirePeriodically": {
+                    "custom_recognition_param": {
+                        "threshold": "{清火阈值}",
+                        "roi": [
+                            424,
+                            34,
+                            24,
+                            21
+                        ]
+                    }
+                }
+            }
+        },
+        "是否挂机": {
+            "description": "$Option.LoopLive.UseAFK.Description",
+            "label": "$Option.LoopLive.UseAFK",
+            "type": "select",
+            "default_case": "是",
+            "cases": [
+                {
+                    "name": "是",
+                    "label": "$Option.LoopLive.UseAFK.Yes",
+                    "pipeline_override": {
+                        "LoopLiveStart": {
+                            "next": [
+                                "LoopLiveFinish"
+                            ],
+                            "post_delay": 90000,
+                            "rate_limit": 2000
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "label": "$Option.LoopLive.UseAFK.No",
+                    "pipeline_override": {
+                        "LoopLiveStart": {
+                            "next": [
+                                "LoopLivePerform"
+                            ],
+                            "post_delay": 3000,
+                            "rate_limit": 0
                         }
                     }
                 }

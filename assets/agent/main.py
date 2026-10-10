@@ -6,6 +6,7 @@ from maa.toolkit import Toolkit
 
 # 导入模块以注册 PlayChart 动作。
 import chart_player
+import pipeline_assist
 
 
 def main():

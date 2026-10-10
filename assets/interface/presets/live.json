@@ -12,6 +12,16 @@
                     "name": "自动演出"
                 }
             ]
+        },
+        {
+            "name": "自动清火",
+            "label": "$Preset.UseFire",
+            "description": "$Preset.UseFire.desc",
+            "task": [
+                {
+                    "name": "自动清火"
+                }
+            ]
         }
     ]
 }

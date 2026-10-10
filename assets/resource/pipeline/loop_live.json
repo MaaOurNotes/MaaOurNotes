@@ -9,6 +9,9 @@
             "[JumpBack]BackToMain",
             "LoopLiveClick"
         ],
+        "anchor": {
+            "LoopLiveEnd": "LoopLiveEnd"
+        },
         "timeout": 3000,
         "rate_limit": 200
     },
@@ -131,9 +134,34 @@
         "action": "DoNothing",
         "post_delay": 1000,
         "next": [
-            "LoopLiveSelectSong"
+            "LoopLiveSelectSong",
+            "[JumpBack]LoopLiveSelectSongSwipeDown"
         ],
         "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectSongSwipeDown": {
+        "max_hit": 10, //单个循环任务中的每次选歌都会共享此次数，如果后续出现需要多次切换选歌的场景，应当改成自定义动作或在前置循环节点用自定义动作重置。
+        "recognition": "OCR",
+        "expected": "乐曲选择",
+        "roi": [
+            230,
+            26,
+            86,
+            25
+        ],
+        "begin": [
+            633,
+            522
+        ],
+        "end": [
+            633,
+            642
+        ],
+        "action": "Swipe",
+        "next": [],
+        "post_delay": 1000,
+        "timeout": 8000,
         "rate_limit": 200
     },
     "LoopLiveSelectSong": {
@@ -236,11 +264,12 @@
         "rate_limit": 200
     },
     "LoopLiveCount": {
-        "max_hit": 5,
+        "max_hit": 1,
         "recognition": "DirectHit",
         "action": "DoNothing",
         "next": [
-            "LoopLiveStart"
+            "LoopLiveCheckLiveBoost",
+            "LoopLiveResetLiveBoost"
         ],
         "timeout": 9000
     },
@@ -257,24 +286,25 @@
         "action": "Click",
         "post_delay": 2000,
         "next": [
-            "LoopLiveCheckLiveBoost",
-            "LoopLiveResetLiveBoost",
             "LoopLiveCount",
             "[JumpBack]BackToMain",
-            "LoopLiveEnd"
+            "[Anchor]LoopLiveEnd"
         ],
         "timeout": 8000,
         "rate_limit": 200
     },
     "LoopLiveCheckLiveBoost": {
-        "recognition": "OCR",
-        "expected": "1[6-9]|20",
-        "roi": [
-            1044,
-            23,
-            27,
-            25
-        ],
+        "recognition": "Custom",
+        "custom_recognition": "FireAboveThreshold",
+        "custom_recognition_param": {
+            "threshold": 18,
+            "roi": [ //roi值需要与task的pipeline_override一致
+                1044,
+                23,
+                27,
+                25
+            ]
+        },
         "action": "DoNothing",
         "next": [
             "LoopLiveSelectLiveBoost"
@@ -315,12 +345,12 @@
         "recognition": "TemplateMatch",
         "template": "Live/LiveBoostConfiguration.png",
         "begin": [
-            498,
-            209
+            300,
+            205
         ],
         "end": [
-            498,
-            329
+            300,
+            325
         ],
         "action": "Swipe",
         "next": [
@@ -343,9 +373,7 @@
         "action": "Click",
         "next": [
             "[JumpBack]LoopLiveOk",
-            "LoopLiveCount",
-            "[JumpBack]BackToMain",
-            "LoopLiveEnd"
+            "LoopLiveStart"
         ],
         "timeout": 8000,
         "rate_limit": 200
@@ -354,12 +382,12 @@
         "recognition": "TemplateMatch",
         "template": "Live/LiveBoostConfiguration.png",
         "begin": [
-            498,
-            209
+            300,
+            205
         ],
         "end": [
-            498,
-            89
+            300,
+            85
         ],
         "action": "Swipe",
         "next": [
@@ -382,9 +410,7 @@
         "action": "Click",
         "next": [
             "[JumpBack]LoopLiveOk",
-            "LoopLiveCount",
-            "[JumpBack]BackToMain",
-            "LoopLiveEnd"
+            "LoopLiveStart"
         ],
         "timeout": 8000,
         "rate_limit": 200
@@ -571,5 +597,49 @@
         "action": "Click",
         "post_delay": 1000,
         "next": []
+    },
+    "UseLiveBoostWhenFull": {
+        "desc": "Return home if needed, then check if live boost is full",
+        "recognition": "DirectHit",
+        "next": [
+            "[JumpBack]BackToMain",
+            "CheckFirePeriodically"
+        ],
+        "anchor": {
+            "LoopLiveEnd": "UseLiveBoostWhenFull"
+        },
+        "timeout": -1,
+        "rate_limit": 10000
+    },
+    "CheckFirePeriodically": {
+        "recognition": "Custom",
+        "custom_recognition": "FireAboveThreshold",
+        "custom_recognition_param": {
+            "threshold": 18,
+            "roi": [ //roi值需要与task的pipeline_override一致
+                424,
+                34,
+                24,
+                21
+            ]
+        },
+        "action": "Custom",
+        "custom_action": "ClearLoopLiveCount",
+        "next": [
+            "LoopLiveClick"
+        ],
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "ReadFireAmount": {
+        "recognition": "OCR",
+        "expected": ".+",
+        "only_rec": true,
+        "roi": [
+            1044,
+            23,
+            27,
+            25
+        ]
     }
 }

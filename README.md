@@ -16,7 +16,8 @@ OurNotes 小助手，为减轻土豆服务器清日常的痛苦而生。
 ## 功能列表
 
 - 日常收取 （任务，礼物收取）
-- 挂机演出 （火溢出自动使用）
+- 自动清火 （火溢出自动使用）
+- 挂机演出 （自动攒活动点数）
 ~~更多功能施工中！~~
 
 ## 使用说明
@@ -29,6 +30,17 @@ OurNotes 小助手，为减轻土豆服务器清日常的痛苦而生。
 ## 常见问题
 
 ~~请阅读 [常见问题](./docs/zh_cn/develop/faq.md)。~~ 施工中！
+
+## 免责声明
+
+- 本软件是免费开源的。 如果你被收费，请立即退款。请访问 QQ 群或 GitHub 下载最新的官方版本。
+  This software is free and open-source. If you were charged for it, please request a refund immediately. Visit the QQ group or GitHub to download the latest official version.
+
+- 本软件仅供个人使用，用于学习 Python 编程、计算机视觉、UI 自动化等。 请勿将其用于任何营利性或商业用途。
+  This software is for personal use only, intended for learning Python programming, computer vision, UI automation, and similar purposes. Do not use it for any commercial or profit-seeking activities.
+
+- 使用本软件可能会导致账号被封。 请在了解风险后再使用。
+  Using this software may result in account bans. Please proceed only if you fully understand the risks.
 
 ## 鸣谢
 
@@ -56,5 +68,5 @@ OurNotes 小助手，为减轻土豆服务器清日常的痛苦而生。
 [![Contributors](https://contrib.rocks/image?repo=kazenohane/MaaOurnotes&max=1000)](https://github.com/kazenohane/MaaOurnotes/graphs/contributors)
 
 ## 加入我们
-- MaaOurNotes 交流群 
-    QQ群 1128037204 
+- MaaOurNotes 交流群
+    QQ群 1128037204
