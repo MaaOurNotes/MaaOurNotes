@@ -230,7 +230,7 @@ class PlayChart(CustomAction):
                             dynamic_latency += postpone_ms
                             target += postpone_ms / 1000
                         else:
-                            print("没有识别到文字")
+                            print("没有识别到评分")
 
                     if context.tasker.stopping:
                         return False

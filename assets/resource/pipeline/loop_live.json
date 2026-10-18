@@ -109,7 +109,7 @@
             0,
             0
         ],
-        "threshold": 0.8,
+        "threshold": 0.72,
         "action": "Click",
         "post_delay": 1000,
         "next": [
@@ -135,9 +135,76 @@
         "post_delay": 1000,
         "next": [
             "LoopLiveSelectSong",
-            "[JumpBack]LoopLiveSelectSongSwipeDown"
+            "LoopLiveSelectSongMoveToTop"
         ],
         "timeout": 3000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectSongMoveToTop": {
+        "recognition": "OCR",
+        "expected": "乐曲选择",
+        "roi": [
+            230,
+            26,
+            86,
+            25
+        ],
+        "action": "DoNothing",
+        "next": [
+            "LoopLiveSelectSongCheckIfTop",
+            "[JumpBack]LoopLiveSelectSongSwipeDownToTop"
+        ],
+        "timeout": 10000
+    },
+    "LoopLiveSelectSongCheckIfTop": {
+        "max_hit": 10,
+        "recognition": "ColorMatch",
+        "lower": [
+            245,
+            245,
+            245
+        ],
+        "upper": [
+            255,
+            255,
+            255
+        ],
+        "roi": [
+            707,
+            87,
+            7,
+            7
+        ],
+        "count": 12,
+        "action": "DoNothing",
+        "post_delay": 500,
+        "next": [
+            "LoopLiveSelectSong",
+            "[JumpBack]LoopLiveSelectSongSwipeUp",
+            "[JumpBack]LoopLiveSelectSongSwipeDown"
+        ]
+    },
+    "LoopLiveSelectSongSwipeDownToTop": {
+        "max_hit": 10, //单个循环任务中的每次选歌都会共享此次数，如果后续出现需要多次切换选歌的场景，应当改成自定义动作或在前置循环节点用自定义动作重置。
+        "recognition": "OCR",
+        "expected": "乐曲选择",
+        "roi": [
+            230,
+            26,
+            86,
+            25
+        ],
+        "begin": [
+            481,
+            100
+        ],
+        "end": [
+            481,
+            646
+        ],
+        "action": "Swipe",
+        "duration": 500,
+        "next": [],
         "rate_limit": 200
     },
     "LoopLiveSelectSongSwipeDown": {
@@ -151,16 +218,42 @@
             25
         ],
         "begin": [
-            633,
-            522
+            481,
+            100
         ],
         "end": [
-            633,
-            642
+            481,
+            472
         ],
         "action": "Swipe",
+        "duration": 1000,
         "next": [],
-        "post_delay": 1000,
+        "post_delay": 400,
+        "timeout": 8000,
+        "rate_limit": 200
+    },
+    "LoopLiveSelectSongSwipeUp": {
+        "max_hit": 10, //单个循环任务中的每次选歌都会共享此次数，如果后续出现需要多次切换选歌的场景，应当改成自定义动作或在前置循环节点用自定义动作重置。
+        "recognition": "OCR",
+        "expected": "乐曲选择",
+        "roi": [
+            230,
+            26,
+            86,
+            25
+        ],
+        "begin": [
+            481,
+            646
+        ],
+        "end": [
+            481,
+            272
+        ],
+        "action": "Swipe",
+        "duration": 1000,
+        "next": [],
+        "post_delay": 400,
         "timeout": 8000,
         "rate_limit": 200
     },
@@ -452,10 +545,11 @@
         "next": [
             "[JumpBack]LoopLiveRankUp",
             "[JumpBack]CloseWindow",
+            "[JumpBack]LoopLiveOk",
             "LoopLiveNextStep",
             "LoopLiveFinish"
         ],
-        "timeout": 9000,
+        "timeout": 21000,
         "rate_limit": 300
     },
     "LoopLiveRankUp": {

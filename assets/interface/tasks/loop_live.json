@@ -312,7 +312,7 @@
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
-                            "template": "Live/All.png"
+                            "template": "Live/Mygo.png"
                         },
                         "LoopLiveSelectType": {
                             "recognition": "OCR",
@@ -335,11 +335,11 @@
                 },
                 {
                     "name": "Homie’s Tie!! · hard",
-                    "label": "Homie’s Tie!!·hard·一家Dumb Rock!",
+                    "label": "ホーミー・タイッ！！·hard·一家Dumb Rock!",
                     "pipeline_override": {
                         "LoopLiveSelectBand": {
                             "recognition": "TemplateMatch",
-                            "template": "Live/All.png"
+                            "template": "Live/DumbRock.png"
                         },
                         "LoopLiveSelectType": {
                             "recognition": "OCR",
@@ -347,7 +347,7 @@
                         },
                         "LoopLiveSelectSong": {
                             "recognition": "OCR",
-                            "expected": "Homie['’]s\\s*Tie!!"
+                            "expected": "ホーミー・タイッ！！"
                         },
                         "LoopLiveSelectDifficulty": {
                             "next": "LoopLiveSelectHard"
